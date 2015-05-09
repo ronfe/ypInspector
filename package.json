@@ -1,0 +1,27 @@
+{
+  "name": "Yupiao-inspector",
+  "version": "0.0.1",
+  "description": "A yupiao inspector for 12306",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ronfe/ypInspector"
+  },
+  "keywords": [
+    "yupiao",
+    "inspector",
+    "12306"
+  ],
+  "author": "ronfe <hongfei@guanghe.tv> (http://ronfe.net/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ronfe/ypInspector/issues"
+  },
+  "homepage": "https://github.com/ronfe/ypInspector",
+  "dependencies": {
+    "node-crontab": "0.0.8"
+  }
+}
