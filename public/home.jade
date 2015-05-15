@@ -1,0 +1,29 @@
+head
+   link(rel='stylesheet', href='http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css')
+   script(src='http://code.jquery.com/jquery-1.10.2.js')
+   script(src='http://code.jquery.com/ui/1.11.4/jquery-ui.js')
+   script.
+      $(function() {
+         $( "#datepicker" ).datepicker({dateFormat: 'yy-mm-dd'});
+      });
+
+body
+   h1 Welcome to use ypInspector
+   form#query-info
+      input#depart-station(type='text', placeholder='code of station')
+      br
+      br
+      input#arrive-station(type='text', placeholder='code of station')
+      br
+      br
+      p
+         | Date:
+         input#datepicker(type='text', size='30')
+
+   button#confirm(onclick='tryIt()') &#x63D0;&#x4EA4;
+   p#result
+   script.
+      function tryIt(){
+         var url = 'http://localhost:2413/info/' + $('#datepicker').val() + '/' + $('#depart-station').val() + '/' + $('#arrive-station').val();
+         $('#result').text(url);
+      }

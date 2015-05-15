@@ -7,13 +7,26 @@ var request = require('request');
 var fs = require('fs');
 var _ = require('lodash');
 var path = require('path');
+var jade = require('jade');
 var json = require('JSON');
 var app = new express();
+app.set('views', './public');
+app.set('view engine', 'jade');
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 app.get('/', function(req, res){
+    res.render('home', {
+        title: 'hello',
+        message: 'Hello world!'
+    });
+});
+
+app.get('/info/:date/:from/:to', function(req, res){
+    var date = req.params.date;
+    var fromS = req.params.from;
+    var toS = req.params.to;
     var options = {
-        url: 'http://kyfw.12306.cn/otn/lcxxcx/query?purpose_codes=ADULT&queryDate=2015-05-16&from_station=BJP&to_station=HHC'
+        url: 'http://kyfw.12306.cn/otn/lcxxcx/query?purpose_codes=ADULT&queryDate=' + date + '&from_station=' + fromS + '&to_station=' + toS
     };
     request(options, function (error, response, body) {
         if (!error && response.statusCode == 200) {
