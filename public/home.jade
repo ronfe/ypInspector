@@ -25,5 +25,7 @@ body
    script.
       function tryIt(){
          var url = 'http://localhost:2413/info/' + $('#datepicker').val() + '/' + $('#depart-station').val() + '/' + $('#arrive-station').val();
-         $('#result').text(url);
+         $.get(url, function(data, status){
+            $('#result').text(data);
+         });
       }
